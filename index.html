@@ -98,6 +98,13 @@ input[type="submit"] {
   color: #FC8181;
 }
 
+.error {
+  margin-top: 0;
+  color: #FC8181;
+  font-size: small;
+  display: none;
+}
+
 </style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -111,6 +118,7 @@ input[type="submit"] {
     <form id="form">
       <label for="fname">Business Domain <span class="required">*</span> </label>
       <input type="text" id="domain" placeholder="Your Business domain">
+      <p id="error-message" class="error">The domain is not allowed.</p>
       <input type="submit" value="Continue">
     </form>
   </main>
