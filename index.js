@@ -6,8 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const allowedDomains = ["ldenim", "arautos", "bmp"];
 
   const isValidDomain = (domain) => {
-    const domainName = domain.replace(/^https?:\/\//, "").split(".")[0];
-    return allowedDomains.includes(domainName);
+    if (domain) {
+      const domainName = domain.replace(/^https?:\/\//, "").split(".")[0];
+      return allowedDomains.includes(domainName);
+    }
   };
 
   const formatDomain = (domain) => {
@@ -35,14 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("domain", domainValue);
       window.location.href = domainValue;
     } else {
-      errorMessage.textContent = "The domain is not allowed.";
+      errorMessage.style.display = "block";
     }
   });
 
   const getDomain = () => {
-    console.log("outside if block in get domain");
-    console.log("defaultDomain:", defaultDomain);
-    console.log("isValidDomain(defaultDomain):", isValidDomain(defaultDomain));
     if (defaultDomain && isValidDomain(defaultDomain)) {
       console.log("Inside if block in get domain");
       const formattedDomain = formatDomain(defaultDomain);
